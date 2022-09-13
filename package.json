@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "webpack": "webpack",
-    "start": "npm run watch:css && webpack serve",
-    "watch:css": "postcss ./src/assets/tailwind.css -o ./src/assets/main.css",
+    "start": "npm run build:css && webpack serve",
+    "build:css": "postcss ./src/assets/tailwind.css -o ./src/assets/main.css",
+    "watch:css": "watch 'npm run build:css' ./src",
     "test": "react-scripts test"
   },
   "author": "",
@@ -25,7 +26,8 @@
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+    "watch": "^1.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.16.8",
