@@ -22,8 +22,14 @@ function List({ collection }: ListProp) {
                   <div className="font-bold text-xl mb-2">
                     <Link to={`/albums/${item?.id}`}>{item?.name}</Link>
                   </div>
-                  <p>Tracks {item?.total_tracks}</p>
-                  <h5>Year {item?.release_date}</h5>
+                  <h5>
+                    Year:{' '}
+                    <span className="font-bold">{item?.release_date}</span>
+                  </h5>
+                  <p>
+                    Tracks:{' '}
+                    <span className="font-bold">{item?.total_tracks}</span>
+                  </p>
                 </div>
               </div>
             </div>

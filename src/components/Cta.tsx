@@ -1,9 +1,6 @@
 import { Link } from 'react-router-dom';
 
-interface CtaProps {
-  clickHandler: () => void;
-}
-export const Cta = ({ clickHandler }: CtaProps) => {
+export const Cta = () => {
   return (
     <div className="bg-gray-50">
       <div className="mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:flex lg:items-center lg:justify-between lg:py-16 lg:px-8">

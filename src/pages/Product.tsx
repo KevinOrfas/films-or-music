@@ -62,12 +62,11 @@ const Product = () => {
             </div>
           </div>
         </div>
-        <div className="shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+        <h1 className="text-6xl font-normal leading-normal mt-5 mb-5 text-cyan-800">
+          Explore the Tracks
+        </h1>
+        <div className="mt-5 rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
           <div className="px-4 py-3">
-            <h2 className="mt-5 mb-5 font-bold text-teal uppercase text-lg capitalize">
-              Explore the Tracks
-            </h2>
-
             <div className="flex items-center">
               <Songs collection={data?.tracks?.items} />
             </div>
