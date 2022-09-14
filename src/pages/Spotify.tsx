@@ -71,7 +71,6 @@ function Albums() {
     const returnedAlbums = await fetch(albumsUrl, searchParams);
     const albumsData = await returnedAlbums.json();
     setAlbums(albumsData?.items);
-    console.log('albumsData', albumsData);
   };
 
   function handleSignInEmailFieldChange(event: ChangeEvent<HTMLInputElement>) {
@@ -104,6 +103,11 @@ function Albums() {
         </form>
       </div>
       <div>
+        {albums.length > 0 && (
+          <h2 className="mb-5 mt-5 text-black-200 font-bold text-center text-4xl">
+            {searchInput}
+          </h2>
+        )}
         <List collection={albums}></List>
       </div>
     </>
