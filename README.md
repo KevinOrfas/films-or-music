@@ -8,6 +8,7 @@
 
 ### Running the app
 
+Update the .env file with the secrets
 To fire up the project run `npm install` and then `npm run start` in the root directory
 
 ### Testing the app
