@@ -36,7 +36,6 @@ function Albums() {
           const data = await response.json();
           if (data) {
             setGenre(data);
-            console.log(data);
           }
         }
       } catch (error) {
@@ -47,7 +46,6 @@ function Albums() {
   }, []);
 
   const search = async (event: any) => {
-    console.log('Searched for ' + searchInput);
     event.preventDefault();
 
     const searchUri = searchUrl + searchInput + '&type=artist';
