@@ -1,52 +1,17 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import List from '../components/List';
 import { useLocalStorage } from '../hooks/useLocalStorage';
 
 const baseUrl = 'https://api.spotify.com/v1';
-const tokenUrl = 'https://accounts.spotify.com/api/token';
+
 const searchUrl = `${baseUrl}/search?q=`;
 const artistsUrl = `${baseUrl}/artists/`;
 
 function Albums() {
   const [searchInput, setSearchInput] = useState('');
-  const [accessToken, setAccessToken] = useState('');
   const [albums, setAlbums] = useState([]);
 
-  const [clientSecret, setClientSecret] = useLocalStorage(
-    'client_secret',
-    `${process.env.CLIENT_SECRET}`
-  );
-  const [clientId, setClientId] = useLocalStorage(
-    'client_id',
-    `${process.env.CLIENT_ID}`
-  );
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const authParams = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `grant_type=client_credentials&client_id=${clientId}&client_secret=${clientSecret}`,
-      };
-      try {
-        const response = await fetch(tokenUrl, authParams);
-        if (response.ok) {
-          setClientSecret(clientSecret);
-          setClientId(clientId);
-          const token = await response.json();
-          if (token.access_token !== undefined) {
-            setAccessToken(token.access_token);
-            localStorage.setItem('access_token', token.access_token);
-          }
-        }
-      } catch (error) {
-        console.log('Error fetching data', error);
-      }
-    };
-    fetchData();
-  }, []);
+  const [accessToken] = useLocalStorage('access_token', '');
 
   const search = async (event: any) => {
     console.log('Searched for ' + searchInput);
